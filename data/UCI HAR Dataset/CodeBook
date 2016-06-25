@@ -1,0 +1,7 @@
+
+
+features_path <- "./data/UCI HAR Dataset/features.txt"
+features <- read.table(features_path)
+
+X_test_path <- "./data/UCI HAR Dataset/test/X_test.txt"
+X_test_raw <- read.table(X_test_path)
