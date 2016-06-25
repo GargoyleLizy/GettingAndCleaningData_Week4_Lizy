@@ -1,8 +1,0 @@
-The analysis files include the generated result week4cleaned.txt and run_analysis.R
-
-run_analysis.R contains a run_analysis R function that could extract data from
-./data/UCI HAR Dataset/ to generate the week4cleaned.txt.
-
-week4cleaned.txt could be converted to dataframe by read.table() funciton. Which
-contains the mean values for mean and standard deviation values of each measurement
-based on each activity and subject.

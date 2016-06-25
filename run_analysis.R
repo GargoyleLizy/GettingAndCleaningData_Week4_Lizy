@@ -1,14 +1,14 @@
 library(dplyr)
 
 run_analysis <- function(){
-    features_path <- "./data/UCI HAR Dataset/features.txt"
-    X_train_path <- "./data/UCI HAR Dataset/train/X_train.txt"
-    subject_train_path <- "./data/UCI HAR Dataset/train/subject_train.txt"
-    y_train_path <- "./data/UCI HAR Dataset/train/y_train.txt"
+    features_path <- "./UCI HAR Dataset/features.txt"
+    X_train_path <- "./UCI HAR Dataset/train/X_train.txt"
+    subject_train_path <- "./UCI HAR Dataset/train/subject_train.txt"
+    y_train_path <- "./UCI HAR Dataset/train/y_train.txt"
     
-    X_test_path <- "./data/UCI HAR Dataset/test/X_test.txt"
-    subject_test_path <- "./data/UCI HAR Dataset/test/subject_test.txt"
-    y_test_path <- "./data/UCI HAR Dataset/test/y_test.txt"
+    X_test_path <- "./UCI HAR Dataset/test/X_test.txt"
+    subject_test_path <- "./UCI HAR Dataset/test/subject_test.txt"
+    y_test_path <- "./UCI HAR Dataset/test/y_test.txt"
     raw_list_data <- extractData(features_path, X_train_path, y_train_path, subject_train_path
                                  ,X_test_path, y_test_path, subject_test_path)
     ## get all the data
@@ -31,7 +31,7 @@ run_analysis <- function(){
     colnames(selected_X_train) <- selected_cols_names
     
     ## put descriptive activity names for the activities.
-    activity_label_path <- "./data/UCI HAR Dataset/activity_labels.txt"
+    activity_label_path <- "./UCI HAR Dataset/activity_labels.txt"
     activity_labels_df <- read.table(activity_label_path)
     activity_labels_c <- activity_labels_df[,2]
     y_test$activity <- activity_labels_c[y_test[,1]]
@@ -52,7 +52,7 @@ run_analysis <- function(){
         group_by_(.dots = dots) %>%
         summarise_each(funs(mean))
     # export the cleaned data
-    write.table(cleaned_data, file="./week4cleandata.txt")
+    write.table(cleaned_data, file="./week4cleandata.txt",row.names = FALSE )
     # return the cleaned data
     cleaned_data
 }
